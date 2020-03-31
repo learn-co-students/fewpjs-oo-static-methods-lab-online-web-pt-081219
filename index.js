@@ -10,16 +10,16 @@ class Formatter {
 
   static titleize(string) {
     let except = ['the', 'a', 'an', 'but', 'of', 'and', 'for', 'at', 'by', 'from']
-    let titleizeString = "";
+    let titleizeString = [];
     string.split(" ").forEach(word => {
       if(except.includes(word)) {
-        titleizeString += word + " ";
+        titleizeString.push(word)
       }
       else {
-        titleizeString += this.capitalize(word) + " ";
+        titleizeString.push(this.capitalize(word));
       }
     });
-    return this.capitalize(titleizeString).slice(0, titleizeString.length-1);
+    return this.capitalize(titleizeString.join(" "));
   }
 
 }
